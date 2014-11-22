@@ -12,8 +12,10 @@ Router.map(function() {
   });
 
   this.resource('user', { path:'/user/:user_id' }, function() {
+    this.route('chat', {path:'/chat/:shelter_id'});
     this.route("dogs");
   });
+
 
 });
 

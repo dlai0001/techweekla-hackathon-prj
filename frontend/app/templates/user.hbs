@@ -1,1 +1,20 @@
+<nav class="navbar navbar-default" role="navigation">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="/assets/dogicon.png" style="height: 2em;"/>Adoptable!
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    {{#link-to "user.chat" 1 1}}
+                    <i class="fa fa-comment-o" style="font-size: 2em;"></i>
+                    <span class="badge"></span>
+                    {{/link-to}}
+                </li>
+
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
 {{outlet}}
