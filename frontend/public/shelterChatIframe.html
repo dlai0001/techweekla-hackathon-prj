@@ -6,19 +6,19 @@
 
     <script src="sinch.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-
 </head>
-<body>
-    place holder for shelter chat
-
-
-    <div id="chatArea">
+<body style="height:100%">
+    <div id="chatArea" style="height:100%;">
     </div>
 
     <div id="newMessage" style="position:fixed; bottom:0px;">
         <input id="message" placeholder="message" disabled
-               onkeypress="return handleKeypress(event)">
-        <button id="sendMsg" disabled onclick="sendMessage();">Send</button>
+               onkeypress="return handleKeypress(event)"
+               style="border-radius:0.5em;height:1.5em;">
+        <button id="sendMsg" disabled onclick="sendMessage();"
+                class="btn btn-primary"
+                style="border-radius:0.5em;height:1.5em;"
+                >Send</button>
     </div>
 
 
@@ -82,6 +82,8 @@
             var node = $("<div data-msgid=\"" + msgId + "\">You:" + message + "</div>");
             $("#chatArea").append(node);
             msgId++;
+
+            return false;
         }
     </script>
 </body>
