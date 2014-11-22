@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
-    return this.get("store").createRecord("user", { id: 1 });
+  model: function(params) {
+    return this.get("store").find("user", params.user_id);
   },
 
   beforeModel: function() {
