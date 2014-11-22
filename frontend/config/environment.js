@@ -18,8 +18,8 @@ module.exports = function(environment) {
       // when it is created
 
       sinch: {
-          key: 'febad451-7ec9-48ec-907d-2c50b2ca1a17',
-          secret: 'kQC3Iw2Nd0qnlHJvteQm6g=='
+          key: '274c1fe2-3c78-493f-9a54-256bb5016620',
+          secret: 'X7MNFW+8KkqP6gw2R7SehQ=='
       }
     }
   };

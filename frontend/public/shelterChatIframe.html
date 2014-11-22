@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://cdn.sinch.com/latest/sinch.min.js"></script>
+</head>
+<body>
+    place holder for shelter chat
+
+
+    <div id="chatArea">
+    </div>
+
+    <div id="newMessage" style="position:fixed; bottom:0px;">
+        <input id="message" placeholder="message"><button id="sendMsg">Send</button>
+    </div>
+
+
+    <script>
+        sinchClient = new SinchClient({
+            applicationKey: 'febad451-7ec9-48ec-907d-2c50b2ca1a17',
+            capabilities: {messaging: true},
+            supportActiveConnection: true, /* NOTE: This is required if application is to receive calls / instant messages. */
+            //Note: For additional loging, please uncomment the three rows below
+            onLogMessage: function(message) {
+                console.log(message);
+            }
+        });
+    </script>
+</body>
+</html>
