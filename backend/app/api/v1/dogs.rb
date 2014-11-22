@@ -5,6 +5,7 @@ module V1
     desc "List dogs"
     params do
       optional :page, type: Integer
+      optional :per_page, type: Integer
     end
     get do
       { dogs: paginate(Dog.all) }

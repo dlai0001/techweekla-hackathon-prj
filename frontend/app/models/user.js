@@ -10,7 +10,7 @@ export default DS.Model.extend({
   },
 
   _createUserDog: function(dog, liked) {
-    var user_dog_attrs = { dog_id: dog.get("id"), liked: liked, user_id: this.get("id") }
+    var user_dog_attrs = { dog_id: dog.get("id"), liked: liked, user_id: this.get("id") };
     var user_dog = this.get("store").createRecord("user_dog", user_dog_attrs);
     return user_dog.save();
   }
