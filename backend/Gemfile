@@ -21,6 +21,7 @@ gem 'spring',        group: :development
 gem 'unicorn'
 gem 'grape'
 gem 'grape-entity'
+gem 'kaminari'
 
 # TODO: currently use my own fork, so we can use grape-swagger  ~> 0.8.0
 # (actually need fix from 0.8.1)

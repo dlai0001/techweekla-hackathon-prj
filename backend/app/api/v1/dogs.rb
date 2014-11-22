@@ -2,12 +2,11 @@ module V1
   class Dogs < Grape::API
     namespace "dogs"
 
-    get do
-      { dogs: Dog.all }
+    params do
+      optional :page, type: Integer
     end
-
-    get "random" do
-      { dog: Dog.all.sample } # for simple dataset
+    get do
+      { dogs: paginate(Dog.all) }
     end
 
   end
