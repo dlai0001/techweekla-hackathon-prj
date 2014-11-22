@@ -28,6 +28,7 @@ gem 'kaminari'
 # After grape-swagger-rails will be update should switch to stable one
 gem 'grape-swagger-rails', github: "keydunov/grape-swagger-rails"
 gem 'grape-swagger', github: "tim-vandecasteele/grape-swagger"
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
