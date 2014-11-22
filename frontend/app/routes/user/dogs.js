@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
-    return this.get("store").find("dog");
+  queryParams: {
+    page: { refreshModel: true },
+  },
+
+  model: function(params) {
+    return this.get("store").findQuery("dog", params);
   }
 });

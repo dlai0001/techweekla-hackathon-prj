@@ -1,0 +1,13 @@
+{{#if noDogs }}
+  No more dogs, come soon later :)
+{{ else }}
+  {{#with currentDog }}
+    <h1>{{ name }} </h1>
+    <img {{ bind-attr src=image_url }} height=300>
+  {{/with}}
+  <br>
+  <br>
+  <button class="like" {{ action "like" }}>Like</button>
+  <button class="dislike" {{ action "dislike" }}>Dislike</button>
+{{/if}}
+
