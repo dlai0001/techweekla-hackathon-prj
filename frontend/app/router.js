@@ -10,7 +10,10 @@ Router.map(function() {
       "use strict";
       this.route('chat', {path:'/chat/:user_id'});
   });
-  this.resource('user', {path:'/user/:user_id'});
+
+  this.resource('user', { path:'/user/:user_id' }, function() {
+    this.route("dogs");
+  });
 
 });
 
