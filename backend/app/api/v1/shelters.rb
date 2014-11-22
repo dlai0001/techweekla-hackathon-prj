@@ -1,6 +1,6 @@
 module V1
   class Shelters < Grape::API
-    namespace "dogs"
+    namespace "shelters"
     before(&:authenticate!)
 
     desc "List shelters with channels for user"
