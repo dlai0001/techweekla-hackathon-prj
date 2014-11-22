@@ -1,8 +1,17 @@
 module.exports = function(app) {
   var globSync   = require('glob').sync;
   var bodyParser = require('body-parser');
+
+
+
   var mocks      = globSync('./mocks/**/*.js', { cwd: __dirname }).map(require);
   var proxies    = globSync('./proxies/**/*.js', { cwd: __dirname }).map(require);
+
+  //make our app insecure.
+  app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    return next();
+  });
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({

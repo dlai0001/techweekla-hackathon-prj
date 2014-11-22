@@ -3,7 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="http://cdn.sinch.com/latest/sinch.min.js"></script>
+
+    <script src="sinch.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 </head>
 <body>
     place holder for shelter chat
@@ -13,11 +16,20 @@
     </div>
 
     <div id="newMessage" style="position:fixed; bottom:0px;">
-        <input id="message" placeholder="message"><button id="sendMsg">Send</button>
+        <input id="message" placeholder="message" disabled
+               onkeypress="return handleKeypress(event)">
+        <button id="sendMsg" disabled onclick="sendMessage();">Send</button>
     </div>
 
 
     <script>
+        function handleKeypress(e) {
+            if (e.keyCode == 13) {
+                sendMessage();
+                return false;
+            }
+        }
+
         sinchClient = new SinchClient({
             applicationKey: 'febad451-7ec9-48ec-907d-2c50b2ca1a17',
             capabilities: {messaging: true},
@@ -27,6 +39,50 @@
                 console.log(message);
             }
         });
+
+        var sessionName = 'sinchSession-' + sinchClient.applicationKey;
+
+        window.myListenerObj = {
+            onMessageDelivered: function (messageDeliveryInfo) {
+            },
+            onIncomingMessage: function (message) {
+                // Handle incoming message
+                console.log("received message payload", message);
+
+                if(message.senderId == "shelter")
+                    return;
+                var node = $("<div>" + message.senderId + ":" + message.textBody + "</div>");
+                $("#chatArea").append(node);
+                msgId++;
+            }
+        };
+
+        sinchClient.start({username: 'shelter', password: 'shelter'})
+                .then(function() {
+                    //enable UI
+                    console.log("sign in succesful");
+                    $("#newMessage *").removeAttr("disabled");
+
+                    window.messageClient = sinchClient.getMessageClient();
+                    window.messageClient.addEventListener(window.myListenerObj);
+                });
+
+
+        var msgId = 0;
+        function sendMessage() {
+            console.log("sending message");
+            // Create a new Message
+            var message = $("input#message").val();
+            $("input#message").val("");
+
+            var messageObj = messageClient.newMessage('user', message);
+            // Send it
+            messageClient.send(messageObj);
+
+            var node = $("<div data-msgid=\"" + msgId + "\">You:" + message + "</div>");
+            $("#chatArea").append(node);
+            msgId++;
+        }
     </script>
 </body>
 </html>

@@ -21,7 +21,18 @@ module.exports = function(environment) {
           key: '274c1fe2-3c78-493f-9a54-256bb5016620',
           secret: 'X7MNFW+8KkqP6gw2R7SehQ=='
       }
+    },
+
+    contentSecurityPolicy: {
+          'default-src': "'none'",
+          'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com cdn.sinch.com",
+          'font-src': "'self' data: use.typekit.net",
+          'connect-src': "'self' *.pubnub.com *.sinch.com",
+          'img-src': "'self' www.facebook.com p.typekit.net",
+          'style-src': "'self' 'unsafe-inline' use.typekit.net",
+          'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     }
+
   };
 
   if (environment === 'development') {
