@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+
+      sinch: {
+          key: 'febad451-7ec9-48ec-907d-2c50b2ca1a17',
+          secret: 'kQC3Iw2Nd0qnlHJvteQm6g=='
+      }
     }
   };
 
