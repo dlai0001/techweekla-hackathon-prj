@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="270">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.35502958" vertical-offset="0" max-vertical-offset="338">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shelterChatIframe.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="shelterChatIframe.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/shelterChatIframe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36809817" vertical-offset="15" max-vertical-offset="1425">
+            <state vertical-scroll-proportion="-5.0" vertical-offset="15" max-vertical-offset="1425">
               <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -168,7 +168,6 @@
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/templates/application.hbs" />
         <option value="$PROJECT_DIR$/app/routes/user/chat.js" />
-        <option value="$PROJECT_DIR$/app/routes/user.js" />
         <option value="$PROJECT_DIR$/app/templates/shelter/chat.hbs" />
         <option value="$PROJECT_DIR$/app/templates/user.hbs" />
         <option value="$PROJECT_DIR$/config/environment.js" />
@@ -177,6 +176,7 @@
         <option value="$PROJECT_DIR$/app/routes/shelter.js" />
         <option value="$PROJECT_DIR$/app/templates/shelter.hbs" />
         <option value="$PROJECT_DIR$/public/shelterChatIframe.html" />
+        <option value="$PROJECT_DIR$/app/routes/user.js" />
       </list>
     </option>
   </component>
@@ -514,6 +514,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="LayoutCode.rearrangeEntriesECMAScript 6" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -641,7 +642,7 @@
         <state vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="165">
           <caret line="3" column="22" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="22" />
           <folding>
-            <marker date="1416686855000" expanded="true" signature="-1:-1" placeholder="{&quot;namespace&quot;: 'api/v1'...}" />
+            <marker date="1416691987000" expanded="true" signature="-1:-1" placeholder="{&quot;namespace&quot;: 'api/v1'...}" />
           </folding>
         </state>
       </provider>
@@ -776,14 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.8" vertical-offset="185" max-vertical-offset="1050">
@@ -862,7 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/shelterChatIframe.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36809817" vertical-offset="15" max-vertical-offset="1425">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="15" max-vertical-offset="1425">
           <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -871,6 +864,14 @@
             <element signature="n#style#0;n#input#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35502958" vertical-offset="0" max-vertical-offset="338">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
