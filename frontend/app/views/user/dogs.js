@@ -9,7 +9,7 @@ export default Ember.View.extend({
 
     _initSwipeGestures: function() {
         "use strict";
-        var mc = Hammer(this.$()[0]);
+        var mc = new Hammer(this.$()[0]);
         mc.on("swipeleft", function (evt) {
             console.log("swipe left detected", evt);
             this.send("like");
@@ -20,7 +20,7 @@ export default Ember.View.extend({
         mc.on("swiperight", function (evt) {
             console.log("swipe rigth detected", evt);
             this.send("dislike");
-            
+
             return false;
         }.bind(this));
     },
