@@ -19,7 +19,7 @@ end
 
 task :deploy do
   sh 'rm -rf backend/public/assets'
-  sh 'cd frontend && BROCCOLI_ENV=production broccoli build ../backend/public/assets && cd ..'
+  sh 'cd frontend && ember build --environment production ../backend/public/assets && cd ..'
 
   unless `git status` =~ /nothing to commit, working directory clean/
     sh 'git add -A'
