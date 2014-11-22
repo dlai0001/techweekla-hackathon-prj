@@ -3,11 +3,11 @@
 {{ else }}
   {{#with currentDog }}
     <h1>{{ name }} </h1>
-    <img {{ bind-attr src=image_url }} height=300>
+    <img {{ bind-attr src=image_url }} height=300 style="position: relative;">
   {{/with}}
   <br>
   <br>
-  <button class="like" {{ action "like" }}>Like</button>
-  <button class="dislike" {{ action "dislike" }}>Dislike</button>
+  <button class="like" {{ action "like" target=view}}>Like</button>
+  <button class="dislike" {{ action "dislike" target=view}}>Dislike</button>
 {{/if}}
 
