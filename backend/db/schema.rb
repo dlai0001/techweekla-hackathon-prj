@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141122045956) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "chats", force: true do |t|
     t.integer  "shelter_id"
     t.integer  "user_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20141122045956) do
     t.datetime "updated_at"
   end
 
-  add_index "chats", ["shelter_id"], name: "index_chats_on_shelter_id"
-  add_index "chats", ["user_id"], name: "index_chats_on_user_id"
+  add_index "chats", ["shelter_id"], name: "index_chats_on_shelter_id", using: :btree
+  add_index "chats", ["user_id"], name: "index_chats_on_user_id", using: :btree
 
   create_table "dogs", force: true do |t|
     t.string   "image_url"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141122045956) do
     t.datetime "updated_at"
   end
 
-  add_index "dogs", ["shelter_id"], name: "index_dogs_on_shelter_id"
+  add_index "dogs", ["shelter_id"], name: "index_dogs_on_shelter_id", using: :btree
 
   create_table "shelters", force: true do |t|
     t.string   "name"
@@ -46,8 +49,8 @@ ActiveRecord::Schema.define(version: 20141122045956) do
     t.datetime "updated_at"
   end
 
-  add_index "user_dogs", ["dog_id"], name: "index_user_dogs_on_dog_id"
-  add_index "user_dogs", ["user_id"], name: "index_user_dogs_on_user_id"
+  add_index "user_dogs", ["dog_id"], name: "index_user_dogs_on_dog_id", using: :btree
+  add_index "user_dogs", ["user_id"], name: "index_user_dogs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
