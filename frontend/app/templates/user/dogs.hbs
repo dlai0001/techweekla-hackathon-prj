@@ -1,13 +1,30 @@
-{{#if noDogs }}
-  No more dogs, come soon later :)
-{{ else }}
-  {{#with currentDog }}
-    <h1>{{ name }} </h1>
-    <img {{ bind-attr src=image_url }} height=300 style="position: relative;">
-  {{/with}}
-  <br>
-  <br>
-  <button class="like" {{ action "like" target=view}}>Like</button>
-  <button class="dislike" {{ action "dislike" target=view}}>Dislike</button>
-{{/if}}
+<div style="text-align: center">
 
+
+
+    {{#if noDogs }}
+        No more dogs, come soon later :)
+    {{ else }}
+
+        {{#with currentDog }}
+            <h1>{{ name }} </h1>
+            <img {{ bind-attr src=image_url }} height=300 style="position: relative;">
+        {{/with}}
+
+        <p style="margin-top:2em;">
+            <button class="like" {{ action "like" target=view}}
+                    style="height: 5em; width:5em; border-radius: 2.5em; background-color:green;color:white;">
+                <i class="fa fa-thumbs-up" style="transform: scale(2,2)"></i>
+            </button>
+            &nbsp;&nbsp;
+            <button class="dislike" {{ action "dislike" target=view}}
+                    style="height: 5em; width:5em;  border-radius: 2.5em; background-color:red;color:white;">
+                <i class="fa fa-thumbs-down" style="transform: scale(2,2)"></i>
+            </button>
+        </p>
+
+
+
+    {{/if}}
+
+</div>
