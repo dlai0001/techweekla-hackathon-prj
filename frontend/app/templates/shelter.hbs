@@ -3,10 +3,10 @@
         <div class="col-md-4" style="height:100%">
             <h3>Interested Adopters</h3>
 
-            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                {{#each}}
+            <div class="btn-group-vertical btn-block" role="group" aria-label="Vertical button group">
+                {{#each user in users}}
                     <button type="button" class="btn btn-default">
-                        {{name}}
+                        {{user.name}}
                     </button>
                 {{/each}}
             </div>
