@@ -10,5 +10,12 @@ module V1
     get do
       { shelters: Shelter.all }
     end
+
+    route_param :id do
+      desc "Shelter by id"
+      get do
+        { shelter: Shelter.find(params.id) }
+      end
+    end
   end
 end
