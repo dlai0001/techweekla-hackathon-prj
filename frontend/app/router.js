@@ -6,8 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('shelter', {path:'/shelter/:shelter_id'});
+  this.resource('shelter', {path:'/shelter/:shelter_id'}, function() {
+      "use strict";
+      this.route('chat', {path:'/chat/:user_id'});
+  });
   this.resource('user', {path:'/user/:user_id'});
+
 });
 
 export default Router;

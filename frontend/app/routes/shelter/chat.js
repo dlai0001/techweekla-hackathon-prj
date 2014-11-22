@@ -1,11 +1,9 @@
 import Ember from 'ember';
 
-
-
 export default Ember.Route.extend({
-
-    model: function(params) {
+    model: function() {
         "use strict";
-        return this.store.find("shelter", params.shelter_id);
+        console.log("finding chat recipient");
+        return null;
     }
 });
