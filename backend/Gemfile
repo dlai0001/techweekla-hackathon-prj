@@ -1,0 +1,37 @@
+source 'https://rubygems.org'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.8'
+gem 'pg'
+
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'rails_12factor', group: :production
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use unicorn as the app server
+gem 'unicorn'
+gem 'grape'
+gem 'grape-entity'
+gem 'kaminari'
+
+# TODO: currently use my own fork, so we can use grape-swagger  ~> 0.8.0
+# (actually need fix from 0.8.1)
+# After grape-swagger-rails will be update should switch to stable one
+gem 'grape-swagger-rails', github: "keydunov/grape-swagger-rails"
+gem 'grape-swagger', github: "tim-vandecasteele/grape-swagger"
+gem 'rack-cors', :require => 'rack/cors'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
