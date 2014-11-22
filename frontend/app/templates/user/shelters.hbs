@@ -1,0 +1,5 @@
+{{#each shelter in controller}}
+  {{#link-to "user.chat" shelter.id }}
+    {{shelter.name}}
+  {{/link-to}}
+{{/each}}
