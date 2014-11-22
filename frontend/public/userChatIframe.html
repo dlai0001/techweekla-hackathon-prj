@@ -6,6 +6,25 @@
 
     <script src="sinch.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <style>
+
+        div.chat-bubble {
+            border-radius: 1em;
+            padding: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        div.chat-bubble.you {
+            background-color: turquoise;
+            border-bottom-right-radius: 0px;
+        }
+        div.chat-bubble.them {
+            background-color: lightcyan;
+            border-bottom-left-radius: 0px;
+        }
+
+    </style>
 </head>
 <body style="height:100%">
 <div id="chatArea" style="height:100%">
@@ -50,6 +69,7 @@
                 return;
             var node = $("<div>" + message.senderId + ":" + message.textBody + "</div>");
             $("#chatArea").append(node);
+            node.addClass("chat-bubble").addClass("them");
             msgId++;
         }
     };
@@ -77,6 +97,7 @@
         messageClient.send(messageObj);
 
         var node = $("<div data-msgid=\"" + msgId + "\">You:" + message + "</div>");
+        node.addClass("chat-bubble").addClass("you");
         $("#chatArea").append(node);
         msgId++;
     }
