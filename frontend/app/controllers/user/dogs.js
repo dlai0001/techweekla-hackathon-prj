@@ -1,11 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
+  needs: "user",
+  user: Ember.computed.alias("controllers.user.model"),
   queryParams: ['page'],
   page: 1,
 
   noDogs: function() {
-    return this.get("model.length") == 0;
+    return this.get("model.length") === 0;
   }.property("model.length"),
 
   currentDog: function() {
@@ -20,11 +22,15 @@ export default Ember.ArrayController.extend({
 
   actions: {
     like: function() {
-      this.get("model").popObject();
+      // like a dog and show next
+      var dog = this.get("model").popObject();
+      this.get("user").like(dog);
     },
 
     dislike: function() {
-      this.get("model").popObject();
+      // dislike a dog and show next
+      var dog = this.get("model").popObject();
+      this.get("user").dislike(dog);
     }
   }
 });
