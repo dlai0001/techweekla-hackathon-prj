@@ -2,21 +2,24 @@
 
     <div class="container-fluid">
         <div class="navbar-header">
-            {{#link-to "user.dogs"}}
-            <img src="/assets/dogicon.png" style="height: 2em;"/>Adoptable!
+
+            {{#link-to "user.dogs" class="navbar-brand"}}
+                <img src="/assets/dogicon.png" style="height: 2em;display:inline;"></img> Adoptable!
             {{/link-to}}
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     {{#link-to "user.chat" 1 1}}
-                    <i class="fa fa-comment-o" style="font-size: 2em;"></i>
-                    <span class="badge"></span>
+                        <i class="fa fa-comment-o" style="font-size: 2em;"></i>
+                        <span class="badge" style="position:absolute; right:2px; bottom:2px;">{{unreadCount}}</span>
                     {{/link-to}}
                 </li>
 
             </ul>
         </div>
-    </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
+
 {{outlet}}

@@ -29,7 +29,7 @@ module.exports = function(environment) {
           'font-src': "'self' *",
           'connect-src': "'self' *.pubnub.com *.sinch.com adopt-backend.herokuapp.com *.amazonaws.com",
           'img-src': "'self' *",
-          'style-src': "'self' *",
+          'style-src': "'self' 'unsafe-inline' *",
           'frame-src': "*",
           'report-uri': "*"
     }
