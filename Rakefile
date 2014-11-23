@@ -18,16 +18,12 @@ task :run do
 end
 
 task :deploy do
-  sh 'rm -rf backend/public/assets'
-  sh 'cd frontend && ember build --environment production ../backend/public/assets && cd ..'
-
-  unless `git status` =~ /nothing to commit, working directory clean/
-    sh 'git add -A'
-    sh 'git commit -m "Asset compilation for deployment"'
-  end
-
   sh 'git subtree push -P backend heroku master'
   sh 'heroku run rake db:migrate'
+end
+
+task :deploy_front do
+  sh 'git subtree push -P frontend heroku-front master'
 end
 
 namespace :db do

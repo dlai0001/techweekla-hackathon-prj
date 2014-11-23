@@ -1,3 +1,15 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Adoptable</a>
+    </div>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
 <div class="container" style="height:100%">
     <div class="row"  style="height:100%">
         <div class="col-md-4" style="height:100%">
@@ -5,9 +17,9 @@
 
             <div class="btn-group-vertical btn-block" role="group" aria-label="Vertical button group">
                 {{#each user in users}}
-                    <button type="button" class="btn btn-default">
+                    {{#link-to "shelter.chat" model user class="btn btn-default"}}
                         {{user.name}}
-                    </button>
+                    {{/link-to}}
                 {{/each}}
             </div>
 
