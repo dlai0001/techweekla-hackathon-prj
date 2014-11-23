@@ -30,24 +30,22 @@ export default Ember.View.extend({
             "use strict";
             console.log("like");
 
-            this.$("img").animate({left: "-2500px", top: "-30px"},
-                500,
-                function () {
-                    this.controller.send("like");
-                    this.$("img").css({left: "0px", top: "0px"});
-                }.bind(this));
+            this.$("img#dog-img").addClass("like");
+            setTimeout(function() {
+                this.controller.send("like");
+                this.$("img#dog-img").removeClass("like");
+            }.bind(this), 400);
         },
 
         dislike: function () {
             "use strict";
             console.log("dislike");
 
-            this.$("img").animate({left: "2500px", top: "-30px"},
-                500,
-                function () {
-                    this.controller.send("dislike");
-                    this.$("img").css({left: "0px", top: "0px"});
-                }.bind(this));
+            this.$("img#dog-img").addClass("dislike");
+            setTimeout(function() {
+                this.controller.send("dislike");
+                this.$("img#dog-img").removeClass("dislike");
+            }.bind(this), 400);
         }
     }
 });
