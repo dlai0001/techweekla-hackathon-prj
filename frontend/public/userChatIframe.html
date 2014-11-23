@@ -334,8 +334,8 @@ ul.chat-available-user li a:hover {
 
 <script type="template" id="template">
     <div class="group-rom">
-        <div class="first-part odd">John</div>
-        <div class="second-part"><%= message  %></div>
+        <div class="first-part odd"><%= name %></div>
+        <div class="second-part"><%= message %></div>
         <div class="third-part"><%= time %></div>
     </div>
 </script>
@@ -384,7 +384,7 @@ ul.chat-available-user li a:hover {
             var node = $("<div>" + message.senderId + ":" + message.textBody + "</div>");
 
             var compiled = _.template($("script#template").text());
-            $(".mid-side").append(compiled({message: message.textBody, time: "12:34"}));
+            $(".mid-side").append(compiled({message: message.textBody, time: "12:34", name: "East Valley Shelter" }));
 
             node.addClass("chat-bubble").addClass("them");
             msgId++;
@@ -417,7 +417,7 @@ ul.chat-available-user li a:hover {
         node.addClass("chat-bubble").addClass("you");
 
         var compiled = _.template($("script#template").text());
-        $(".mid-side").append(compiled({message: message, time: "12:34"}));
+        $(".mid-side").append(compiled({message: message, time: "12:34", name: "John"}));
 
         msgId++;
     }
