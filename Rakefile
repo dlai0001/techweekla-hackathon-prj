@@ -22,6 +22,10 @@ task :deploy do
   sh 'heroku run rake db:migrate'
 end
 
+task :deploy_front do
+  sh 'git subtree push -P frontend heroku-front master'
+end
+
 namespace :db do
   task :dump do
     db = YAML.load(File.read('backend/config/database.yml'))['development']['database']

@@ -1,21 +1,13 @@
 import Ember from 'ember';
 
-
-
 export default Ember.Route.extend({
-
     model: function(params) {
-        "use strict";
-        //return this.store.find("shelter", params.shelter_id);
-        return [
-            {
-                id:1,
-                name:"Mr. Perfect"
-            },
-            {
-                id:2,
-                name:"Mr. Wrong"
-            }
-        ];
+      return this.get("store").find("shelter", params.shelter_id);
+    },
+
+    setupController: function(controller, model) {
+      controller.set("model", model);
+      var users = this.get("store").findQuery("user", { shelter_id: model.get("id") });
+      return controller.set("users", users);
     }
 });
