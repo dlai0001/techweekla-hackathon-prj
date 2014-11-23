@@ -3,8 +3,11 @@ html, body {
 }
 
 img#dog-img {
-    transition: all 0.5s linear;
-    -webkit-transition: all 0.5s linear;
+    transition: all 500ms ease-out;
+    -webkit-transition: all 500ms ease-out;
+    -moz-transition: all 500ms ease-out;
+    -o-transition: all 500ms ease-out;
+    -webkit-transition: all 500ms ease-out;
 }
 
 img#dog-img.like {
@@ -14,3 +17,4 @@ img#dog-img.like {
 img#dog-img.dislike {
     transform: translate(5000px, 0);
 }
+
