@@ -5,37 +5,355 @@
     <title></title>
 
     <script src="sinch.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+    rel="stylesheet">
+
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 
     <style>
+/*CHAT ROOM & LOBBY CONFIGURATION*/
 
-        div.chat-bubble {
-            border-radius: 1em;
-            padding: 1em;
-            margin-bottom: 0.5em;
-        }
+/*chat room*/
+.chat-room {
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    position: relative;
+}
 
-        div.chat-bubble.you {
-            background-color: turquoise;
-            border-bottom-right-radius: 0px;
-        }
-        div.chat-bubble.them {
-            background-color: lightcyan;
-            border-bottom-left-radius: 0px;
-        }
+.chat-room aside {
+    display: table-cell;
+    float: none;
+    height: 100%;
+    padding: 0;
+    vertical-align: top;
+}
 
-    </style>
+.chat-room .mid-side {
+    width: 75%;
+    background: #fff;
+    border-right: 1px solid #e5e8ef;
+}
+
+.chat-room .right-side {
+    width: 25%;
+    background: #fff;
+}
+
+.chat-room .right-side .user-head {
+    background: #3498db;
+    color: #FFFFFF;
+    min-height: 70px;
+    padding: 10px;
+    border-left: 1px solid #3498db;
+    margin-left: -1px;
+    position: relative;
+}
+
+
+.chat-room .user-head i {
+   float: left;
+   font-size: 40px;
+   margin-right: 10px;
+}
+
+.chat-room .user-head h3 {
+    margin: 6px 0 0 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.chat-room-head {
+    background:#68dff0;
+    color: #FFFFFF;
+    min-height: 70px;
+    padding: 15px;
+}
+
+.chat-room-head h3 {
+    margin: 5px 0 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.chat-room-head .search-btn {
+    width: 20px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    box-shadow: none;
+    background: #34495e;
+    padding:0 5px 0 35px;
+    margin-top: 2px;
+    border: none;
+    color: #fff;
+}
+
+.chat-room-head .search-btn:focus {
+    width: 180px;
+    box-shadow: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    /*background: #01a6b2;*/
+    font-weight: 300;
+    color: #fff;
+}
+
+.chat-room-head .search-btn:focus::-moz-placeholder {
+    color: #fff;
+}
+
+ul.chat-list li a {
+    color: #6a6a6a;
+    display: block;
+    padding: 15px;
+    font-weight: 300;
+}
+ul.chat-list li a:hover, ul.chat-list li.active a {
+    color: #00a9b4;
+    background: #f2f4f7;
+}
+
+ul.chat-list li h4 {
+    padding: 17px 15px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #D5D7DE;
+}
+
+ul.chat-list li h4 i {
+    padding-right: 5px;
+}
+
+ul.chat-list li a span {
+    padding-left: 10px;
+}
+
+ul.chat-list li a i.fa-times {
+    color: #9fa3b0;
+}
+
+ul.chat-list li.active {
+    color: #00a9b4;
+    background: #f2f4f7;
+}
+
+ul.chat-list {
+    border-bottom: 1px solid #d5d7de;
+}
+
+ul.chat-user  {
+    margin-bottom: 200px;
+}
+
+ul.chat-user li {
+    border-bottom: none;
+}
+
+ul.chat-user li a:hover{
+    background: none;
+    color: #6a6a6a;
+}
+
+.chat-room .mid-side footer {
+    background: #f6f6f6;
+    padding: 15px;
+    height: 70px;
+    width: 75%;
+    position: absolute;
+    bottom: 0;
+    border-right: 1px solid #E5E8EF;
+}
+
+.chat-room .right-side footer {
+    background: #fff;
+    padding: 15px;
+    height: 70px;
+    width: 25%;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #E5E8EF;
+    border-radius: 0 0 4px 0;
+    -webkit-border-radius: 0 0 4px 0;
+}
+
+.room-desk {
+    display: inline-block;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 15px;
+}
+
+.room-desk h4 {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 16px;
+    margin: 5px 0 0 0;
+}
+
+.room-box {
+    border: 1px solid #e7e7e7;
+    background: #f7f8fa;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+.room-box:hover {
+	background: #f0f0f0
+}
+
+.room-box h5 {
+    margin: 0 0 5px 0;
+    font-weight: 300;
+    font-size: 16px;
+}
+.room-box h5 a {
+    color: #68dff0;
+}
+
+.chat-tools {
+    float: right;
+    padding: 3px;
+    width: 40px;
+    height: 35px;
+    line-height: 30px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    text-align: center;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+.chat-tools i {
+    font-size: 16px !important;
+    float: none !important;
+    margin-right: 0 !important;
+    color: #fff;
+}
+
+.invite-row {
+    background: #ecf0f1;
+    padding: 6px 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.invite-row h4 {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+ul.chat-available-user {
+    padding: 10px;
+}
+
+ul.chat-available-user li {
+    margin-bottom: 15px;
+}
+
+ul.chat-available-user li a {
+    color: #6a6a6a;
+}
+
+ul.chat-available-user li a:hover {
+    color: #68dff0;
+}
+
+
+.group-rom {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #eaebee;
+}
+
+.group-rom .first-part, .group-rom .second-part, .group-rom .third-part {
+    float: left;
+    padding: 15px;
+}
+
+.group-rom .first-part {
+    width: 25%;
+}
+
+.group-rom .first-part.odd {
+    background: #f7f8fa;
+    color: #6a6a6a;
+    font-weight: 600;
+}
+
+.group-rom .second-part{
+    width: 60%;
+}
+
+.group-rom .third-part{
+    width: 15%;
+    color: #d4d3d3;
+}
+
+.last-group {
+	margin-bottom: 70px;
+}
+
+.chat-txt {
+    float: left;
+    width: 75%;
+    margin-right: 5px;
+}
+
+.lobby {
+    padding: 0 !important;
+}
+
+</style>
+
 </head>
 <body style="height:100%">
 <div id="chatArea" style="height:100%">
 </div>
+<div class="chat-room mt">
+<aside class="mid-side">
+  <div class="chat-room-head">
+    <h3>Chating with East Valley Shelter </h3>
+    <form action="#" class="pull-right position">
+        <input type="text" placeholder="Search" class="form-control search-btn ">
+    </form>
+  </div>
 
-<div id="newMessage" style="position:fixed; bottom:0px;">
-    <input id="message" placeholder="message" disabled
-           onkeypress="return handleKeypress(event)">
-    <button id="sendMsg" disabled onclick="sendMessage();">Send</button>
+</aside>
 </div>
 
+<script type="template" id="template">
+    <div class="group-rom">
+        <div class="first-part odd">John</div>
+        <div class="second-part"><%= message  %></div>
+        <div class="third-part"><%= time %></div>
+    </div>
+</script>
+
+<br><br>
+
+<div id="newMessage" style="position:fixed; bottom:0px; width: 100%;">
+                          <div class="chat-txt">
+    <input id="message" placeholder="message" class="form-control" disabled
+           onkeypress="return handleKeypress(event)">
+                          </div>
+    <button id="sendMsg" class="btn btn-success" disabled onclick="sendMessage();">Send</button>
+  </div>
+</div>
 
 <script>
 
@@ -68,7 +386,10 @@
             if(message.senderId == "user")
                 return;
             var node = $("<div>" + message.senderId + ":" + message.textBody + "</div>");
-            $("#chatArea").append(node);
+
+            var compiled = _.template($("script#template").text());
+            $(".mid-side").append(compiled({message: message.textBody, time: "12:34"}));
+
             node.addClass("chat-bubble").addClass("them");
             msgId++;
         }
@@ -98,7 +419,10 @@
 
         var node = $("<div data-msgid=\"" + msgId + "\">You:" + message + "</div>");
         node.addClass("chat-bubble").addClass("you");
-        $("#chatArea").append(node);
+
+        var compiled = _.template($("script#template").text());
+        $(".mid-side").append(compiled({message: message, time: "12:34"}));
+
         msgId++;
     }
 </script>

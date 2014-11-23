@@ -2,6 +2,15 @@ html, body {
   margin: 20px;
 }
 
+.heighty {
+  height: 400px;
+}
+
+iframe {
+  border: none;
+  box-shadow: none;
+}
+
 img#dog-img {
     transition: transform ease-out 500ms ;
     -moz-transition: transform 500ms ease-out;
